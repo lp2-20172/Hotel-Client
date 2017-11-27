@@ -97,7 +97,7 @@ class Form extends Component {
                             </p>
                         </div>
                         <div className="informance">
-                            <textarea type="text" readonly="readonly" className="input_text"
+                            <textarea type="text" readonly="readonly" className="input_text informance_input"
                                 value={this.state.descripcion}
                             />
                         </div>

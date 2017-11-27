@@ -3,7 +3,7 @@
   width: 100%  !important;
 }
 .habitacion_info{
-  height: 596px !important;
+  height: 640px !important;
   width: 735px !important;
   margin: 0 auto;
   margin-top: 34px;
@@ -167,7 +167,7 @@ justify-content: space-around;
 }
 .info_rooms{
   background: black;
-  height: 107px;
+      height: 150px;
   color: white;
 }
 .info_color{
@@ -346,4 +346,11 @@ z-index: 10000;
   text-align: center;
   background: #000;
   color: #fff;
+}
+.informance{
+  margin-top: 16px;
+    margin-left: -5px;
+}
+.informance_input{
+  width: 586px;
 }
