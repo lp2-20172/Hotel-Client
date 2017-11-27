@@ -96,12 +96,13 @@ class Form extends Component {
                                 <NavLink exact to="/form" activeClassName="selected">Reservar</NavLink>
                             </p>
                         </div>
+                        <div className="informance">
+                            <textarea type="text" readonly="readonly" className="input_text"
+                                value={this.state.descripcion}
+                            />
+                        </div>
                     </div>
-                    <div className="informance">
-                        <textarea type="text" readonly="readonly" className="input_text"
-                            value={this.state.descripcion}
-                        />
-                    </div>
+
                 </div>
             </div>
         )
