@@ -10,7 +10,7 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -37,5 +37,50 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script src="https://use.fontawesome.com/1bf1b3524d.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.7/hammer.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript">
+
+      $(document).ready(function() {
+
+      var menus = document.getElementById("main-icon");
+      var menu = document.getElementById("main");
+
+
+      var consulta = window.matchMedia("(max-width:763px)");
+      consulta.addListener(mediaQuery);
+
+      function toggleMenu() {
+        menu.classList.toggle('active');
+      }
+
+      function showMenu() {
+        menu.classList.add('active');
+      };
+
+      function hideMenu() {
+        menu.classList.remove('active');
+      };
+
+      function mediaQuery() {
+        if (consulta.matches) {
+          console.log("secumplio ");
+          menus.addEventListener("touchstart", toggleMenu);
+        } else {
+          menus.removeEventListener("touchstart", toggleMenu);
+          console.log("no se cumplio");
+        }
+      }
+      mediaQuery();
+      var $body = document.body;
+
+
+
+      var gestos = new Hammer($body);
+      gestos.on('swipeleft', hideMenu);
+      gestos.on('swiperight', showMenu);
+    });
+
+  </script>
   </body>
 </html>

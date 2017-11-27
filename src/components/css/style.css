@@ -112,6 +112,12 @@ footer{
   margin-bottom: -20px;
 
 }
+.mainflex{
+
+  display: flex;
+justify-content: space-around;
+    background: #000;
+}
 .portada{
   display: flex;
   justify-content: center;
@@ -259,16 +265,61 @@ footer{
 }
 @media screen and (max-width:767px){
   /*/Aca para las tablets/*/
+
+
   .fa-2x{
     opacity: 0.9;
     color: #A0E01A;
     cursor: pointer;
-    margin-left: 131px;
-    padding-top: 17px;
+    position: absolute;
+z-index: 10000;
   }
-  .main ul{
-   display: none;
+
+  .main{
+      display: flex;
+      position: fixed;
+      right: 0;
+      left: -100%;
+      width: 100%;
+      bottom: 0;
+      top: 0;
+      text-align: center;
+      background: rgba(16, 125, 80, 0.9);
+      flex: 1;
+      margin: 0;
+      align-items: center;
+      text-align: center;
+      transition: .3s;
+      z-index: 10000;
+    }
+    .main.active{
+      left: 0;
+    }
+    .main ul{
+      flex: 1;
+      padding: 0px;
+    }
+    .main li{
+      display: block;
+      padding: 13px 0px;
+      border-top: 1px solid#fff;
+      font-size: 22px;
+      margin-right: 0px;
+    }
+  .main_icon{
+    opacity: 100;
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
   }
+
+  .main_icon{
+    opacity: 100;
+    color:#E2050C;
+  }
+
 }
 #cuerpo1{
   margin: 4%;
@@ -290,9 +341,9 @@ footer{
     text-align: center;
   }
 }
-
 .input_text{
   border:none;
   text-align: center;
-  
-  }
+  background: #000;
+  color: #fff;
+}
