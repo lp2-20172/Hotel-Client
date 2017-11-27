@@ -1,0 +1,292 @@
+.img_info{
+  height: 486px !important;
+  width: 100%  !important;
+}
+.habitacion_info{
+  height: 596px !important;
+  width: 735px !important;
+  margin: 0 auto;
+  margin-top: 34px;
+}
+.info_reserva{
+padding-top: 27px;
+
+}
+.img img{
+  height: 486px !important;
+  width: 100% !important;
+}
+.cuerpoform{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  height: 380px;
+  width: 347px;
+  padding-top: 24px;
+}
+.formulario_lo{
+  display: flex;
+  justify-content: center;
+  padding-top: 112px;
+}
+input{
+
+}
+
+.form_login{
+  width: 257px !important;
+  margin-left: 0px !important;
+  margin-bottom: 22px !important;
+}
+.form_login btn:hover {
+  cursor: pointer;
+}
+.bot_ol{
+
+}
+#botonhref{
+
+}
+.imglogo{
+  background-image: url("../images/logo.png");
+  width: 168px;
+  height: 102px;
+  background-repeat: no-repeat;
+  background-size: 72%;
+  margin-top: 10px;
+
+}
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main li{
+  display: inline-block;
+  color: white;
+  margin-right: 118px;
+}
+a{
+  text-decoration: none;
+}
+.main li a{
+  color: white;
+}
+.main li a:hover{
+  border-bottom: 3px solid #A0E01A;
+  padding-bottom: 3px;
+}
+header{
+  display: flex;
+  justify-content: center;
+  height: 92px;
+  background: black;
+}
+.fa-2x{
+  opacity: 0.0;
+}
+footer{
+  background: black;
+  margin-top: 20px;
+  bottom: 0;
+  width: 100%;
+  color: white;
+
+}
+.footer{
+  display: flex;
+  justify-content: space-around;
+}
+.footer_seccion{
+  width: 213px;
+
+}
+.imgbackground{
+  background-image: url("../images/hotel.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: -webkit-fill-available;
+  margin-bottom: -20px;
+
+}
+.portada{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.img{
+  width: 375px;
+  height: 280px;
+}
+.img-habitacion img{
+  width: 100%;
+  height: 275px;
+}
+.habitacion{
+  height: 386px;
+    width: 380px;
+    border: 2px solid black;
+    margin-top: 30px;
+}
+.fotos {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.f_hotel {
+  width: 400px;
+  height: 250px;
+  margin: 10px 10px;
+  border-radius: 1%;
+}
+.info{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.contenedor{
+  width: 940px;
+  margin: 0 auto;
+}
+.contenedor_habitacion{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.info_rooms{
+  background: black;
+  height: 107px;
+  color: white;
+}
+.info_color{
+  color: #A0E01A;
+}
+.form{
+  width: 222px;
+  height: 43px;
+  border-radius: 5px;
+  border: none;
+  background: #D8D8D8;
+  margin-left: 19px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 13px 1px rgba(0,0,0,0.75);
+  color: black;
+  font-size: 15px;
+}
+.formulario{
+  position: absolute;
+  top: 16%;
+  text-align: center;
+}
+.reserva {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: auto;
+}
+.form2 {
+  padding-left: 20px;
+  border-radius: 5px;
+  display: block;
+  margin: 10px;
+  width: 340px;
+  height: 45px;
+  font-size: 16px;
+}
+.form2btn{
+  border-top: 20px;
+  border-radius: 5px;
+  border: none;
+  margin: 20px 10px;
+  background: #D8D8D8;
+  color: #000;
+  font-size: 18px;
+  width: 340px;
+  height: 45px;
+}
+.form2btn:hover {
+  background: #A0E01A;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+}
+.text{
+  background: rgba(216, 216, 216,0.7);
+  width: 100%;
+  height: 398px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.text h1{
+  font-size: 41px;
+  width: 536px;
+  text-align: center;
+}
+.btn{
+  transition: 0.2s;
+}
+.btn:hover{
+  background: #A0E01A;
+  cursor: pointer;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+}
+@media screen and (max-width:1199px){
+
+  /*/Aca para las laptops/*/
+  .contenedor_habitacion{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .contenedor{
+    width: 100%;
+  }
+}
+@media screen and (max-width:767px){
+  /*/Aca para las tablets/*/
+  .fa-2x{
+    opacity: 0.9;
+    color: #A0E01A;
+    cursor: pointer;
+    margin-left: 131px;
+    padding-top: 17px;
+  }
+  .main ul{
+   display: none;
+  }
+}
+#cuerpo1{
+  margin: 4%;
+
+}
+#cuerpo2{
+  margin-top: 10%;
+  margin-left: 20%;
+  width: 55%;
+}
+@media screen and (max-width: 480px) {
+  /*/Aca para los moviles/*/
+  .text{
+        margin-top: 128px;
+  }
+  .footer{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
