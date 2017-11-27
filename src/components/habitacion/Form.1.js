@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom'
 import { UncontrolledCarousel } from 'reactstrap';
 
+
 const items = [
     {
         src: 'http://rossello-barcelona.eveniahotels.com/wp-content/uploads/2013/12/Family.jpg',
@@ -30,15 +31,20 @@ const items = [
 ];
 
 
-class Form extends Component {
+
+class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
-            precio_diario: props.data ? props.data.precio_diario : '',
             tipo_habitacion: props.data ? props.data.tipo_habitacion : '',
-            descripcion: props.data ? props.data.descripcion : ''
-        }
+            precio_diario: props.data ? props.data.precio_diario : '',
+        }/*
+        this.state = {
+            id:  null,
+            codigo:'',
+            nombre: ''
+        }*/
     }
 
     componentDidMount() {
@@ -47,15 +53,23 @@ class Form extends Component {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
-                    precio_diario: data.precio_diario,
                     tipo_habitacion: data.tipo_habitacion,
-                    descripcion: data.descripcion
+                    precio_diario: data.precio_diario,
                 });
             });
         }
 
     }
+    handleInputChange = event => {
+        const target = event.target
+        const value = target.type === 'checkbox' ? target.checked : target.value
+        const name = target.name
 
+        this.setState({
+            [name]: value
+        })
+
+    }
     handleSubmit = event => {
         event.preventDefault()
         console.log('d=' + JSON.stringify(this.state))
@@ -63,13 +77,13 @@ class Form extends Component {
         const { id } = this.props.match.params
         if (id) {
             this.props.update(this.state, this.props.history).then(r => {
-                r.push('/catalogo/categorias/list')
+                r.push('/catalogo/habitaciones/hab')
             }, error => {
                 throw (error)
             })
         } else {
             this.props.save(this.state, this.props.history).then(r => {
-                r.push('/catalogo/categorias/list')
+                r.push('/catalogo/habitaciones/hab')
             }, error => {
                 throw (error)
             })
@@ -80,34 +94,38 @@ class Form extends Component {
         //console.log(JSON.stringify(this.props))
         //const { list } = this.props
         return (
-            <div>
+            <div >
                 <div className="habitacion habitacion_info" >
                     <div className="img img_info">
                         <UncontrolledCarousel items={items} />
                     </div>
-                    <div className="info_rooms" onSubmit={this.handleSubmit}>
+                    <div className="info_rooms">
                         <div className="info info_reserva">
-                            <input readonly="readonly" className="input_text"
-                                value={this.state.precio_diario} />
-                            <input readonly="readonly" className="input_text"
+                            <h3
                                 value={this.state.tipo_habitacion}
-                            />
+                                onChange={this.handleInputChange}
+                                name="tipo_habitacion"/>
+                        
+                            <p value={this.state.precio_diario}
+                            onChange={this.handleInputChange}
+                            name="precio_diario">
+                          
+                            </p>
                             <p>
                                 <NavLink exact to="/form" activeClassName="selected">Reservar</NavLink>
                             </p>
                         </div>
                     </div>
                     <div className="informance">
-                        <textarea type="text" readonly="readonly" className="input_text"
-                            value={this.state.descripcion}
-                        />
+                        <p> Descripcion</p>
                     </div>
                 </div>
+
             </div>
         )
     }
 }
-Form.propTypes = {
+List.propTypes = {
     data: PropTypes.object
 }
 
@@ -126,4 +144,4 @@ export default connect(mapStateToProps, {
     save,
     getById,
     update
-})(Form)
+})(List)

@@ -290,3 +290,9 @@ footer{
     text-align: center;
   }
 }
+
+.input_text{
+  border:none;
+  text-align: center;
+  
+  }
