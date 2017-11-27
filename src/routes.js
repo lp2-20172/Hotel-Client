@@ -1,9 +1,8 @@
 import React from 'react'
 //import loadable from 'loadable-components';
 
-import CategoriaList from './components/categoria/List'
-import CategoriaForm from './components/categoria/Form'
-import Habitacion from './components/habitacion/Habitacion'
+import HabitacionForm from './components/habitacion/Form'
+import HabitacionList from './components/habitacion/List'
 import Home from './components/home/Home'
 import Login from './components/Login'
 
@@ -32,34 +31,29 @@ const routes = [
     component: Home
   },
   {
-    path: '/catalogo/habitacion/list',
-    //title: 'list cat!',
-    component: Habitacion
-  },
-  {
     path: '/catalogo',
     //title: 'catalogo!',
     component: Link,
     routes: [
       {
-        path: '/catalogo/categorias',
+        path: '/catalogo/habitacion',
         //title: 'categorias!',
         component: Link,
         routes: [
           {
-            path: '/catalogo/categorias/list',
+            path: '/catalogo/habitacion/list',
             //title: 'list cat!',
-            component: CategoriaList
+            component: HabitacionList
           },
           {
-            path: '/catalogo/categorias/new',
+            path: '/catalogo/habitacion/new',
             //title: 'new cat!',
-            component: CategoriaForm
+            component: HabitacionForm
           },
           {
-            path: '/catalogo/categorias/edit/:id',
+            path: '/catalogo/habitacion/edit/:id',
             //title: 'edit cat!',
-            component: CategoriaForm
+            component: HabitacionForm
           }
           
         ]
