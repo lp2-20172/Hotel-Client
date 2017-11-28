@@ -20,7 +20,7 @@ class Home extends Component {
                     <option value="Matrimonial">Matrimonial</option>
                     <option value="Triple">Triple</option>
                 </select>
-                <Link exact to='/hotel/categorias/list' activeClassName="selected"><input className="form btn" type="submit" name="" value="Reservar" /></Link>
+                <Link exact to='/person/form' activeClassName="selected"><input className="form btn" type="submit" name="" value="Reservar" /></Link>
 
                 </div>
                 <div className="text">

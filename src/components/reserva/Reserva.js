@@ -7,6 +7,7 @@ import { getList as getPersonList } from '../../actions/person-action'
 import { connect } from 'react-redux'
 
 import moment from 'moment';
+import 'moment/locale/es';
 
 import {
     Link,
@@ -23,7 +24,7 @@ class Reserva extends Component {
             tipo_reserva: props.data ? props.data.tipo_reserva : '',
             person: props.data ? props.data.person : false,
             estado: props.data ? props.data.estado : false,
-
+            
         }
     }
 
@@ -42,6 +43,7 @@ class Reserva extends Component {
                     tipo_reserva: data.tipo_reserva,
                     person: data.person,
                     estado: data.estado,
+                   
 
                 });
             });
@@ -59,11 +61,13 @@ class Reserva extends Component {
 
     }
 
+
     handleSubmit = event => {
         event.preventDefault()
-        console.log('f=' + JSON.stringify(this.state))
+        console.log('d=' + JSON.stringify(this.state))
 
-        const { id } = this.props.match.params
+        const { id } = this.props.match.params;
+        this.state.fecha_ingresa = moment(this.state.f)
         if (id) {
             this.props.update(this.state, this.props.history).then(r => {
                 r.push('/hotel/person2/list')
@@ -95,7 +99,6 @@ class Reserva extends Component {
                             value={this.state.tipo_reserva}
                             onChange={this.handleInputChange}
                             name="tipo_reserva" />
-
                         <div>Cliente</div>
                         <Input type="select"
                             value={this.state.person}
@@ -116,7 +119,7 @@ class Reserva extends Component {
                             name="estado"
                             onChange={this.handleInputChange} />
 
-                        <input type="submit" className="form2btn" value="Enviar" />
+                        <input type="submit" className="form2btn" value="Reservar" />
 
                     </form>
 

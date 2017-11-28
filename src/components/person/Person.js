@@ -102,7 +102,7 @@ class Person extends Component {
             })
         } else {
             this.props.save(this.state, this.props.history).then(r => {
-                r.push('/home')
+                r.push('/reserva/form')
             }, error => {
                 throw (error)
             })
