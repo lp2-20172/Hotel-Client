@@ -4,6 +4,7 @@ import React from 'react'
 import HabitacionForm from './components/habitacion/Form'
 import HabitacionList from './components/habitacion/List'
 import Person from './components/person/Person'
+import Reserva from './components/reserva/Reserva'
 import Home from './components/home/Home'
 import Login from './components/Login'
 
@@ -35,6 +36,11 @@ const routes = [
     path: '/person/form',
     //title: 'list cat!',
     component: Person
+  },
+  {
+    path: '/reserva/form',
+    //title: 'list cat!',
+    component: Reserva
   },
  
   {
