@@ -51,7 +51,7 @@ class List extends Component {
                         <div className="info info_color">
                             <Link to={`/catalogo/habitacion/edit/${d.id}`}>Mas informacion</Link>
                             <p>
-                                <Link exact to="/form" activeClassName="selected">Reservar</Link>
+                                <Link exact to="/person/form" activeClassName="selected">Reservar</Link>
                             </p>
                         </div>
                     </div>

@@ -3,6 +3,7 @@ import React from 'react'
 
 import HabitacionForm from './components/habitacion/Form'
 import HabitacionList from './components/habitacion/List'
+import Person from './components/person/Person'
 import Home from './components/home/Home'
 import Login from './components/Login'
 
@@ -31,6 +32,12 @@ const routes = [
     component: Home
   },
   {
+    path: '/person/form',
+    //title: 'list cat!',
+    component: Person
+  },
+ 
+  {
     path: '/catalogo',
     //title: 'catalogo!',
     component: Link,
@@ -54,7 +61,8 @@ const routes = [
             path: '/catalogo/habitacion/edit/:id',
             //title: 'edit cat!',
             component: HabitacionForm
-          }
+          },
+          
           
         ]
         

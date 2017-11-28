@@ -93,7 +93,7 @@ class Form extends Component {
                                 value={this.state.tipo_habitacion}
                             />
                             <p>
-                                <NavLink exact to="/form" activeClassName="selected">Reservar</NavLink>
+                                <NavLink exact to="/person/form" activeClassName="selected">Reservar</NavLink>
                             </p>
                         </div>
                         <div className="informance">
