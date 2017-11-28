@@ -73,29 +73,7 @@ export const getById = (id) => {
         })
     }
 }
-/*
-export const CATEGORIA_FETCH = "CATEGORIA_FETCH"
-export const categoriaFetch = (data) => (
-    {
-        type: CATEGORIA_FETCH,
-        data
-    }
-)
-export const getByIdx = (id) => {
-    return (dispatch) => {
-        return new Promise((resolve, reject) => {
-            try {
-                person.get(`${url}${id}`).then(r => {
-                    dispatch(categoriaFetch(r.data))
-                    resolve(r)
-                })
-            } catch (err) {
-                reject(err)
-            }
-        })
-    }
-}
-*/
+
 export const PERSON_UPDATE = "PERSON_UPDATE"
 export const personUpdate = () => (
     {

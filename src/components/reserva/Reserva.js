@@ -21,11 +21,9 @@ class Reserva extends Component {
             id: props.data ? props.data.id : null,
             costo_alojamiento: props.data ? props.data.costo_alojamiento : '',
             tipo_reserva: props.data ? props.data.tipo_reserva : '',
-            person: props.data ? props.data.person : '',
+            person: props.data ? props.data.person : false,
             estado: props.data ? props.data.estado : false,
-            fecha_ingresa: props.data ? props.data.fecha_ingresa : '',
-            fecha_salida: props.data ? props.data.fecha_salida : '',
-            f: props.data ? moment(props.data.fecha_ingresa, 'YYYY-MM-DD hh:mm A') : moment().format('YYYY-MM-DD hh:mm A')
+
         }
     }
 
@@ -44,9 +42,7 @@ class Reserva extends Component {
                     tipo_reserva: data.tipo_reserva,
                     person: data.person,
                     estado: data.estado,
-                    fecha_ingresa: data.fecha_ingresa,
-                    fecha_salida: data.fecha_salida,
-                    f: moment(data.fecha_ingresa, 'YYYY-MM-DD hh:mm A'),
+
                 });
             });
         }
@@ -62,13 +58,10 @@ class Reserva extends Component {
         })
 
     }
-    handleChangedate = (newDate) => {
-        return this.setState({ f: newDate });
-    }
 
     handleSubmit = event => {
         event.preventDefault()
-        console.log('d=' + JSON.stringify(this.state))
+        console.log('f=' + JSON.stringify(this.state))
 
         const { id } = this.props.match.params
         if (id) {
@@ -87,6 +80,7 @@ class Reserva extends Component {
     }
 
 
+
     render() {
         let { person_list } = this.props
         return (
@@ -101,34 +95,15 @@ class Reserva extends Component {
                             value={this.state.tipo_reserva}
                             onChange={this.handleInputChange}
                             name="tipo_reserva" />
-                        <div>Fecha Ingresa</div>
-                        <input
-                            className="form2"
-                            type="date"
-                            dateTime={this.state.f}
-                            format="YYYY-MM-DD hh:mm A"
-                            name="f"
-                            inputFormat="YYYY-MM-DD hh:mm A"
-                            onChange={this.handleChangedate}
-                        />
-                        <div>Fecha Salidad</div>
-                        <input
-                            className="form2"
-                            type="date"
-                            dateTime={this.state.f}
-                            format="YYYY-MM-DD hh:mm A"
-                            name="f"
-                            inputFormat="YYYY-MM-DD hh:mm A"
-                            onChange={this.handleChangedate}
-                        />
+
                         <div>Cliente</div>
-                        <Input type="select" name="select"
+                        <Input type="select"
                             value={this.state.person}
-                            name="cliente"
+                            name="person"
                             required="required"
-                            onChange={this.handleChange}
+                            onChange={this.handleInputChange}
                         >
-                            <option value="" disabled>Seleccione una opcion...</option>
+
                             {person_list.map((d, index) =>
                                 <option key={index}
                                     value={d.id}>{d.nombre} {d.apellido_paterno} {d.apellido_materno}</option>
@@ -139,7 +114,7 @@ class Reserva extends Component {
                             type="checkbox"
                             value={this.state.estado}
                             name="estado"
-                            onChange={this.handleChange} />
+                            onChange={this.handleInputChange} />
 
                         <input type="submit" className="form2btn" value="Enviar" />
 
