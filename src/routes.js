@@ -5,6 +5,8 @@ import HabitacionForm from './components/habitacion/Form'
 import HabitacionList from './components/habitacion/List'
 import Person from './components/person/Person'
 import Reserva from './components/reserva/Reserva'
+import Paginacion from './components/paginacion/Paginacion'
+import Nombre from './components/paginacion/Nombres'
 import Home from './components/home/Home'
 import Login from './components/Login'
 
@@ -42,6 +44,17 @@ const routes = [
     //title: 'list cat!',
     component: Reserva
   },
+  {
+    path: '/paginacion',
+    //title: 'list cat!',
+    component: Paginacion
+  },
+  {
+    path: '/paginacion1',
+    //title: 'list cat!',
+    component: Nombre
+  },
+  
  
   {
     path: '/catalogo',
