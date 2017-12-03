@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
 import { getById, save, update } from '../../actions/reserva-action'
 import { getList as getPersonList } from '../../actions/person-action'
 import { connect } from 'react-redux'
+import DateTime from 'react-datetime'
+
 
 import moment from 'moment';
-import 'moment/locale/es';
 
 import {
     Link,
@@ -24,7 +24,8 @@ class Reserva extends Component {
             tipo_reserva: props.data ? props.data.tipo_reserva : '',
             person: props.data ? props.data.person : false,
             estado: props.data ? props.data.estado : false,
-            
+            fecha_ingresa: props.data ? props.data.fecha_ingresa : '',
+            f: props.data ? moment(props.data.fecha_ingresa, 'YYYY-MM-DD hh:mm A') : moment().format('YYYY-MM-DD hh:mm A')
         }
     }
 
@@ -43,7 +44,9 @@ class Reserva extends Component {
                     tipo_reserva: data.tipo_reserva,
                     person: data.person,
                     estado: data.estado,
-                   
+                    fecha_ingresa: data.fecha_ingresa,
+                    f: moment(data.fecha_ingresa, 'YYYY-MM-DD hh:mm A'),
+
 
                 });
             });
@@ -59,6 +62,9 @@ class Reserva extends Component {
             [name]: value
         })
 
+    }
+    handleChangedate = (newDate) => {
+        return this.setState({ f: newDate });
     }
 
 
@@ -99,6 +105,15 @@ class Reserva extends Component {
                             value={this.state.tipo_reserva}
                             onChange={this.handleInputChange}
                             name="tipo_reserva" />
+                        
+                        <label>Fecha Ingreso</label>
+                        <DateTime
+                            dateTime={this.state.f}
+                            format="YYYY-MM-DD hh:mm A"
+                            name="f"
+                            inputFormat="YYYY-MM-DD hh:mm A"
+                            onChange={this.handleChangedate}
+                        />
                         <div>Cliente</div>
                         <Input type="select"
                             value={this.state.person}
