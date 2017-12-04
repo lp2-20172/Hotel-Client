@@ -3,7 +3,7 @@ import React from 'react'
 
 import HabitacionForm from './components/habitacion/Form'
 import HabitacionList from './components/habitacion/List'
-import Person from './components/person/Person'
+import Cliente from './components/person/Person'
 import Reserva from './components/reserva/Reserva'
 import Paginacion from './components/paginacion/Paginacion'
 import Nombre from './components/paginacion/Nombres'
@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/person/form',
     //title: 'list cat!',
-    component: Person
+    component: Cliente
   },
   {
     path: '/reserva/form',

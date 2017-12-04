@@ -1,6 +1,6 @@
 import client from './'
 
-const url = "/api-hotel/habitaciones/"
+const url = "/api-hotel/tipoHabitaciones/"
 export const HABITACION_LIST = "HABITACION_LIST"
 export const habitacionList = (list) => (
     {

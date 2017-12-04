@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { save, getById, update } from '../../actions/person-action'
+import { save, getById, update } from '../../actions/cliente-action'
 import { connect } from 'react-redux'
 
 import {
@@ -9,7 +9,7 @@ import {
     NavLink
 } from 'react-router-dom'
 
-class Person extends Component {
+class Cliente extends Component {
 
     constructor(props) {
         super(props);
@@ -96,7 +96,7 @@ class Person extends Component {
         const { id } = this.props.match.params
         if (id) {
             this.props.update(this.state, this.props.history).then(r => {
-                r.push('/hotel/person2/list')
+                r.push('/hotel/cliente2/list')
             }, error => {
                 throw (error)
             })
@@ -154,14 +154,14 @@ class Person extends Component {
 }
 
 
-Person.propTypes = {
+Cliente.propTypes = {
     data: PropTypes.object
 }
 
 const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
-            data: state.person.list.find(item => item.id + '' === props.match.params.id + '')
+            data: state.cliente.list.find(item => item.id + '' === props.match.params.id + '')
         }
     }
     return {
@@ -175,4 +175,4 @@ export default connect(mapStateToProps, {
     getById,
     update
 
-})(Person)
+})(Cliente)

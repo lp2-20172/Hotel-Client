@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { getById, save, update } from '../../actions/reserva-action'
-import { getList as getPersonList } from '../../actions/person-action'
+import { getList as getClienteList } from '../../actions/cliente-action'
 import { connect } from 'react-redux'
 import DateTime from 'react-datetime'
+//import DatetimeRangePicker from 'react-datetime-range-picker';
 
 
 import moment from 'moment';
@@ -22,7 +23,7 @@ class Reserva extends Component {
             id: props.data ? props.data.id : null,
             costo_alojamiento: props.data ? props.data.costo_alojamiento : '',
             tipo_reserva: props.data ? props.data.tipo_reserva : '',
-            person: props.data ? props.data.person : false,
+            cliente: props.data ? props.data.cliente : '',
             estado: props.data ? props.data.estado : false,
             fecha_ingresa: props.data ? props.data.fecha_ingresa : '',
             f: props.data ? moment(props.data.fecha_ingresa, 'YYYY-MM-DD hh:mm A') : moment().format('YYYY-MM-DD hh:mm A')
@@ -31,7 +32,7 @@ class Reserva extends Component {
 
 
     componentWillMount = () => {
-        this.props.getPersonList("")
+        this.props.getClienteList("")
     }
 
     componentDidMount = () => {
@@ -42,7 +43,7 @@ class Reserva extends Component {
                     id: data.id,
                     costo_alojamiento: data.costo_alojamiento,
                     tipo_reserva: data.tipo_reserva,
-                    person: data.person,
+                    cliente: data.cliente,
                     estado: data.estado,
                     fecha_ingresa: data.fecha_ingresa,
                     f: moment(data.fecha_ingresa, 'YYYY-MM-DD hh:mm A'),
@@ -76,7 +77,7 @@ class Reserva extends Component {
         this.state.fecha_ingresa = moment(this.state.f)
         if (id) {
             this.props.update(this.state, this.props.history).then(r => {
-                r.push('/hotel/person2/list')
+                r.push('/hotel/cliente2/list')
             }, error => {
                 throw (error)
             })
@@ -92,7 +93,7 @@ class Reserva extends Component {
 
 
     render() {
-        let { person_list } = this.props
+        let { cliente_list } = this.props
         return (
             <div className="imgbackground portada">
                 <div className="reserva">
@@ -105,7 +106,7 @@ class Reserva extends Component {
                             value={this.state.tipo_reserva}
                             onChange={this.handleInputChange}
                             name="tipo_reserva" />
-                        
+                        <div>Cliente</div>
                         <label>Fecha Ingreso</label>
                         <DateTime
                             dateTime={this.state.f}
@@ -114,15 +115,14 @@ class Reserva extends Component {
                             inputFormat="YYYY-MM-DD hh:mm A"
                             onChange={this.handleChangedate}
                         />
-                        <div>Cliente</div>
                         <Input type="select"
-                            value={this.state.person}
-                            name="person"
+                            value={this.state.cliente}
+                            name="cliente"
                             required="required"
                             onChange={this.handleInputChange}
                         >
 
-                            {person_list.map((d, index) =>
+                            {cliente_list.map((d, index) =>
                                 <option key={index}
                                     value={d.id}>{d.nombre} {d.apellido_paterno} {d.apellido_materno}</option>
                             )}
@@ -148,7 +148,7 @@ class Reserva extends Component {
 
 Reserva.propTypes = {
     data: PropTypes.object,
-    person_list: PropTypes.array,
+    cliente_list: PropTypes.array,
 
 }
 
@@ -156,12 +156,12 @@ const mapStateToProps = (state, props) => {
     if (props.match.params.id) {
         return {
             data: state.reserva.list.find(item => item.id + '' === props.match.params.id + ''),
-            person_list: state.person.list,
+            cliente_list: state.cliente.list,
         }
     }
     return {
         data: null,
-        person_list: state.person.list,
+        cliente_list: state.cliente.list,
 
     }
 
@@ -171,5 +171,5 @@ export default connect(mapStateToProps, {
     save,
     getById,
     update,
-    getPersonList,
+    getClienteList,
 })(Reserva)

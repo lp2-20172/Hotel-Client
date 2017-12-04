@@ -1,17 +1,17 @@
 import client from './'
 
-const url = "/api-hotel/reservas/"
-export const RESERVA_LIST = "RESERVA_LIST"
-export const reservaList = (list) => (
+const url = "/api-hotel/clientes/"
+export const CLIENTE_LIST = "CLIENTE_LIST"
+export const clienteList = (list) => (
     {
-        type: RESERVA_LIST,
+        type: CLIENTE_LIST,
         list
     }
 )
 
-export const RESERVA_LIST_FAILURE = 'RESERVA_LIST_FAILURE'
-export const reservaListFailure = error => ({
-    type: RESERVA_LIST_FAILURE,
+export const CLIENTE_LIST_FAILURE = 'CLIENTE_LIST_FAILURE'
+export const clienteListFailure = error => ({
+    type: CLIENTE_LIST_FAILURE,
     error
 })
 
@@ -23,19 +23,19 @@ export const getList = (q = '') => {
     }
     return (dispatch) => {
         client.get(url, params).then(r => {
-            dispatch(reservaList(r.data))
+            dispatch(clienteList(r.data))
         }).catch(error => {
             //throw (error)
             //console.log('getList catch:' + JSON.stringify(error.response))
             if (error.response) {
-                dispatch(reservaListFailure(error.response.data.detail))
+                dispatch(clienteListFailure(error.response.data.detail))
             } else if (error.request) {
                 console.log(error.request);
-                dispatch(reservaListFailure(JSON.stringify('Error ' + error.request)))
+                dispatch(clienteListFailure(JSON.stringify('Error ' + error.request)))
             } else {
                 // Something happened in setting up the request that triggered an Error
                 console.log('Error', error.message);
-                dispatch(reservaListFailure('Error ' + error.message))
+                dispatch(clienteListFailure('Error ' + error.message))
             }
             //console.log(error.config);
 
@@ -44,10 +44,10 @@ export const getList = (q = '') => {
 }
 
 
-export const RESERVA_ADD = "RESERVA_ADD"
-export const reservaAdd = () => (
+export const CLIENTE_ADD = "CLIENTE_ADD"
+export const clienteAdd = () => (
     {
-        type: RESERVA_ADD,
+        type: CLIENTE_ADD,
     }
 )
 export const save = (d, h) => {
@@ -55,7 +55,7 @@ export const save = (d, h) => {
         return new Promise((resolve, reject) => {
             try {
                 client.post(url, d).then(r => {
-                    dispatch(reservaAdd())
+                    dispatch(clienteAdd())
                     resolve(h)
                 })
             } catch (err) {
@@ -73,10 +73,10 @@ export const getById = (id) => {
         })
     }
 }
-export const RESERVA_UPDATE = "RESERVA_UPDATE"
-export const reservaUpdate = () => (
+export const CLIENTE_UPDATE = "CLIENTE_UPDATE"
+export const clienteUpdate = () => (
     {
-        type: RESERVA_UPDATE,
+        type: CLIENTE_UPDATE,
     }
 )
 export const update = (d, h) => {
@@ -84,7 +84,7 @@ export const update = (d, h) => {
         return new Promise((resolve, reject) => {
             try {
                 client.put(`${url}${d.id}/`, d).then(r => {
-                    dispatch(reservaUpdate())
+                    dispatch(clienteUpdate())
                     resolve(h)
                 })
             } catch (err) {
@@ -94,10 +94,10 @@ export const update = (d, h) => {
     }
 }
 
-export const RESERVA_DELETE = "RESERVA_DELETE"
-export const reservaDelete = (data) => (
+export const CLIENTE_DELETE = "CLIENTE_DELETE"
+export const clienteDelete = (data) => (
     {
-        type: RESERVA_DELETE,
+        type: CLIENTE_DELETE,
         data
     }
 )
@@ -107,7 +107,7 @@ export const del = (id) => {
         return new Promise((resolve, reject) => {
             try {
                 client.delete(`${url}${id}`).then(r => {
-                    dispatch(reservaDelete(id))
+                    dispatch(clienteDelete(id))
                     resolve(r)
                 })
             } catch (err) {

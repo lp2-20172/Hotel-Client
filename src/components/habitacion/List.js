@@ -40,12 +40,12 @@ class List extends Component {
             {list.map((d, index) =>
                 <div className="habitacion" key={index}>
                     <div className="img-habitacion">
-                        <img src={d.foto} alt={d.tipo_habitacion} />
+                        <img src={d.foto} alt={d.nombre} />
                     </div>
                     <div className="info_rooms">
                         <div className="info">
                             <h3>
-                                {d.tipo_habitacion}
+                                {d.nombre}
                             </h3>
                         </div>
                         <div className="info info_color">
